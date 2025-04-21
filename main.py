@@ -34,7 +34,7 @@ def process(a, b):
     res = []
     for i in a:
         for j in b:
-            if i in j:
+            if i in j and len(i) != 0:
                 res.append(f"'{i}' must to Bypass in WSA ‼️")
     return [i for i,_ in groupby(res)]
 
