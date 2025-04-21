@@ -35,7 +35,7 @@ def process(a, b):
     for i in a:
         for j in b:
             if i in j:
-                res.append(f"{i} ต้องจัดการทำ Bypass บนอุปกรณ์ WSA ‼️")
+                res.append(f"'{i}' must to Bypass in WSA ‼️")
     return [i for i,_ in groupby(res)]
 
 if __name__ == "__main__":
@@ -53,7 +53,7 @@ if __name__ == "__main__":
                     print(i)
                     print('=================================')
             else:
-                print("ไม่เจอที่จะต้อง Bypass บนอุปกรณ์ WSA ❤️")
+                print("Empty not have to Bypass in WSA ❤️")
             input('press "Enter" to contiunes....')
         except Exception:
             sys.exit(0)
