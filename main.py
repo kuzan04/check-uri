@@ -35,7 +35,7 @@ def process(a, b):
     for i in a:
         for j in b:
             if i in j:
-                res.append(f"{i} is match ‼️")
+                res.append(f"{i} ต้องจัดการทำ Bypass บนอุปกรณ์ WSA ‼️")
     return [i for i,_ in groupby(res)]
 
 if __name__ == "__main__":
@@ -47,11 +47,13 @@ if __name__ == "__main__":
             b = [i['Domain or IP'] for i in select_file("csv")]
             r = process(a,b)
             print("Result have found in the WSA!!: ")
+            print('#################################')
             if len(r) != 0:
                 for i in r:
                     print(i)
+                    print('=================================')
             else:
-                print("Empty not found ❤️")
+                print("ไม่เจอที่จะต้อง Bypass บนอุปกรณ์ WSA ❤️")
             input('press "Enter" to contiunes....')
         except Exception:
             sys.exit(0)
