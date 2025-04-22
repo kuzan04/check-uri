@@ -1,12 +1,12 @@
 w-install:
 	python -m venv .dataenv
 	call .dataenv\Scripts\activate
-	pip install pyinstaller
+	pip install pyinstaller tqdm
 	
 install:
 	python3 -m venv .dataenv
 	source .dataenv/bin/activate
-	pip install pyinstaller
+	pip install pyinstaller tqdm
 
 w-builds:
 	pyinstaller --onefile --name="search-uri" --icon=icons/myicon.ico --version-file="version.txt" main.py
