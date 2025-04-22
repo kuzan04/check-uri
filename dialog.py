@@ -1,9 +1,12 @@
 import csv
 import ctypes
+import shutil
 import tkinter as tk
 from datetime import datetime
 from tkinter import filedialog
 
+
+WIDTH = shutil.get_terminal_size().columns
 
 def select_file(t):
     # Create the root window & inital window.
@@ -52,10 +55,11 @@ def save_file(r):
                 # Write row data.
                 writer.writerows(r)
 
-            ctypes.windll.user32.MessageBoxW(0, "File saved successfully:\n{}".format(fn), "File Saved", 0)
+            # ctypes.windll.user32.MessageBoxW(0, "File saved successfully:\n{}".format(fn), "File Saved", 0)
         except Exception as e:
-            ctypes.windll.user32.MessageBoxW(0, "Error saving file:\n{}".format(str(e)), "Error", 0)
+            pass
+            # ctypes.windll.user32.MessageBoxW(0, "Error saving file:\n{}".format(str(e)), "Error", 0)
 
     root.destroy()
-    print("========== Save file success... =========")
-    print('=========================================')
+    print("Save file success...".center(WIDTH))
+    print('=' * WIDTH)

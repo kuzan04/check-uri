@@ -1,9 +1,12 @@
 import os
 import sys
+import shutil
 import multiprocessing
 from dialog import select_file, save_file
 from process import process
 
+
+WIDTH = shutil.get_terminal_size().columns
 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -18,17 +21,19 @@ if __name__ == "__main__":
             print("Select the input file list about URL: ")
             a = [i.rstrip() for i in select_file("txt")]
             print("Select the input file CSV from WSA: ")
+            print('=' * WIDTH)
             b = [[i['Domain or IP'], i['Transactions Completed'], i['Transactions Blocked']] for i in select_file("csv")]
             r = process(a,b)
+            print('=' * WIDTH)
             if len(r) != 0:
-                print("Browse to save file result: ")
-                print('=========================================')
+                print("Browse to save file result: ".center(WIDTH))
+                print('=' * WIDTH)
                 _ = save_file(r)
             else:
                 print("Result: ")
-                print('=========================================')
+                print('=' * WIDTH)
                 print("Empty not found in the Proxy.")
-                print('=========================================')
+                print('=' * WIDTH)
             try:
                 input('press "Enter" to contiunes....')
             except KeyboardInterrupt:
